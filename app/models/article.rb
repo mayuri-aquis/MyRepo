@@ -1,8 +1,8 @@
 class Article < ActiveRecord::Base
 
 	validates_presence_of :title
-	validates_presence_of :text
 	validates :text,
+			presence: true,
 			length: { minimum: 15 }
 
 	has_many :notes, foreign_key: :thing_id

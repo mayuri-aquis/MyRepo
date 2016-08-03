@@ -45,7 +45,6 @@ class ArticlesController < ApplicationController
   end
 
   def show_errors(src, scope=nil)
-  	puts ":::::::::::::::::::::> #{src.errors.messages.inspect}"
   	src = Hash[src.errors.messages.map{|k,v| ["#{src.class.name.downcase}_#{k.to_s}", v]}]
 		render 'shared/show_errors', locals: { src: src}
 	end
