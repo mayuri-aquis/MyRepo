@@ -1,0 +1,29 @@
+<%= form_for @article, url: articles_path, remote: true do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'mask' %>
+    <br>
+    <span class='error'> </span>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+  <%= f.fields_for :notes do |n| %>
+    <p>
+      <%= n.label :comment %><br>
+      <%= n.text_area :note %>
+    </p>
+  <% end %>
+  <%= f.fields_for :notes do |n| %>
+    <p>
+      <%= n.label :comment %><br>
+      <%= n.text_area :note %>
+    </p>
+  <% end %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', articles_path %>
